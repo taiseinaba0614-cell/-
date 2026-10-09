@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=810" name="viewport"/>
-<title>BUSHIDO Glove Order Sheet</title>
+<title>Glove Order Sheet</title>
 <style>
   @page { size: A4; margin: 0; }
   * { box-sizing: border-box; }
@@ -1000,13 +1000,13 @@ option{
 <div class="mobile-fit-note">PC仕様のままiPhone表示 / 横スクロール・ピンチ拡大できます</div>
 <div class="sheet">
 <div class="top-title">
-<h1>BUSHIDO GLOVE ORDER SHEET</h1>
+<h1 style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;"><input id="brand-name" type="text" value="BRAND" placeholder="BRAND" style="font-size:17px;font-weight:800;letter-spacing:.35px;border:0;border-bottom:1.5px dashed #999;background:transparent;outline:none;width:auto;min-width:70px;max-width:280px;font-family:inherit;color:inherit;padding:0 2px;" /><span>GLOVE ORDER SHEET</span></h1>
 <div class="model-tag">MADE IN JAPAN ORDER</div>
 <div class="version">
 <div>Ver.1  CUSTOM GLOVE</div>
 <div style="margin-top:6px; border:1px solid #111; padding:4px 6px; text-align:left; background:#f7f7f7;">
 <div style="font-size:7px; font-weight:700; margin-bottom:2px;">ORDER No.</div>
-<input id="order-number" style="font-size:13px; font-weight:800; letter-spacing:.8px; width:100%; border:0; background:transparent; outline:none;" type="text" value="B000000"/>
+<input id="order-number" style="font-size:13px; font-weight:800; letter-spacing:.8px; width:100%; border:0; background:transparent; outline:none;" type="text" value="000000"/>
 </div>
 </div>
 </div>
@@ -2335,7 +2335,7 @@ window.addEventListener('DOMContentLoaded', function(){
 <!-- ===== Share / restore: 入力内容をURLに埋め込み、相手も編集できる ===== -->
 <style>
   #share-form-btn{
-    position:fixed; right:14px; bottom:16px; z-index:100000;
+    position:fixed; left:14px; bottom:16px; z-index:100000;
     background:#111; color:#fff; border:0; border-radius:30px;
     font:700 14px Arial, sans-serif; padding:12px 20px;
     box-shadow:0 3px 10px rgba(0,0,0,.35); cursor:pointer;
@@ -2438,7 +2438,7 @@ window.addEventListener('DOMContentLoaded', function(){
       var url = buildShareUrl();
       var doShare = function(){
         if(navigator.share){
-          navigator.share({ title:'BUSHIDO 注文フォーム', url:url })
+          navigator.share({ title:'注文フォーム', url:url })
             .catch(function(){ copy(url); });
         }else{ copy(url); }
       };
@@ -2457,5 +2457,14 @@ window.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 
+
+<script>
+(function(){
+  var b=document.getElementById('brand-name');
+  if(!b) return;
+  function fit(){ b.style.width=Math.max(70,(b.value.length||b.placeholder.length)*13+10)+'px'; }
+  b.addEventListener('input',fit); window.addEventListener('load',fit); fit();
+})();
+</script>
 </body>
 </html>
